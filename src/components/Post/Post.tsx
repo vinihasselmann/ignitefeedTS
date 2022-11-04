@@ -20,7 +20,7 @@ interface Content {
 interface PostProps {
   author: Author;
   publishedAt: Date;
-  content: Content[];
+  content: any;
 }
 
 export function Post({ author, publishedAt, content } : PostProps) {
@@ -81,7 +81,7 @@ export function Post({ author, publishedAt, content } : PostProps) {
       </header>
 
       <div className={styles.content}>
-        {content.map((line) => {
+        {content.map((line:any) => {
           if (line.type === "paragraph") {
             return <p key={line.content}>{line.content}</p>;
           } else if (line.type === "link") {
